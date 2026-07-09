@@ -112,7 +112,7 @@ func (b *BindDeployOptions) AddCmdFlags(cmd *cobra.Command) {
 
 // Complete ensures all fields are initialized.
 func (b *BindDeployOptions) Complete(args []string) error {
-	if err := b.Options.Complete(false); err != nil {
+	if err := b.Options.Complete(true); err != nil {
 		return err
 	}
 
