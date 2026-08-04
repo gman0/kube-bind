@@ -268,6 +268,7 @@ func (r *Reconciler) heartbeat(ctx context.Context, providerClient client.Client
 			lease.Annotations = map[string]string{}
 		}
 		lease.Annotations[corev1alpha1.AnnotationConsumerClusterUID] = conn.Status.LocalClusterUID
+		lease.Annotations[corev1alpha1.AnnotationConnection] = conn.Name
 		lease.Spec.HolderIdentity = ptr.To(conn.Status.LocalClusterUID)
 		lease.Spec.LeaseDurationSeconds = ptr.To(int32(leaseDurationSeconds))
 		if lease.Spec.AcquireTime == nil {
